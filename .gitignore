@@ -1,6 +1,17 @@
+# Ignora configurações de IDE
 .idea/
 .vscode/
+
+# Ignora arquivos de ambiente
+.env
+
+# Ignora dependências instaladas
 node_modules/
+
+# Ignora diretórios de build temporários
 build/
 tmp/
 temp/
+
+# Ignora lock file gerado pelo npm
+package-lock.json
