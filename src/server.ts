@@ -8,8 +8,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+    res.send("Passei por aqui");
+});
+
 AppDataSource.initialize().then(async () =>{
-    console.log("Database Conected!!!");
+    console.log("Database Conectado!");
     app.listen(port, () => console.log(`http://localhost:${port}`));
 }).catch((error) => {
     console.error("Eita:", error);

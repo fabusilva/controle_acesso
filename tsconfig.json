@@ -15,6 +15,6 @@
       "experimentalDecorators": true,
       "sourceMap": true,
       "allowJs": true,
-      "strict": true,
+      "strict": false,
    }
 }
