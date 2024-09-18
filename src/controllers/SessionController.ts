@@ -5,7 +5,7 @@ export class SessionController{
     async handle(req:Request, res:Response){
         const {email,password} = req.body;
         const sessionService = new SessionServise();
-        const result = sessionService.execute({email,password});
+        const result = await sessionService.execute({email,password});
         if(result instanceof Error){
             return res.status(400).json(result.message)
         }

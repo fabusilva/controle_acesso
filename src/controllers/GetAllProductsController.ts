@@ -5,6 +5,6 @@ export class GetAllProductsController{
     async handle(req:Request,res:Response){
         const getAllProductsService = new GetAllProductsService();
         const products = await getAllProductsService.execute();
-        return products;
+        return res.json(products);
     }
 }

@@ -9,7 +9,7 @@ export class CreateUserService {
     if (existUser) {
       return new Error("Usuário já cadastrado");
     }
-    const passwordHash = await hash(password, 8);
+    const passwordHash = await hash(password, 10);
     const user = UserRepository.create({ email, password: passwordHash });
     await UserRepository.save(user);
 
