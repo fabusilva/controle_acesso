@@ -3,25 +3,27 @@ import { BaseEntity } from "./BaseEntity";
 import Roles from "./Role";
 import Permission from "./Permission";
 
-@Entity("entities")
-export default class User extends BaseEntity{
+@Entity("users")
+export default class User extends BaseEntity {
     @Column()
-    email:string;
+    email: string;
+
     @Column()
-    password:string;
+    password: string;
+
     @ManyToMany(() => Roles)
     @JoinTable({
-        name:"users_roles",
-        joinColumns:[{name:"user_id"}],
-        inverseJoinColumns:[{name:"role_id"}]
+        name: "users_roles",
+        joinColumns: [{ name: "user_id" }],
+        inverseJoinColumns: [{ name: "role_id" }]
     })
-    roles:Roles
+    roles: Roles[];
 
-    @ManyToMany(() =>Permission)
+    @ManyToMany(() => Permission)
     @JoinTable({
-        name:"users_permission",
-        joinColumns:[{name:"user_id"}],
-        inverseJoinColumns:[{name:"permission_id"}]
+        name: "users_permissions",
+        joinColumns: [{ name: "user_id" }],
+        inverseJoinColumns: [{ name: "permission_id" }]
     })
-    permission:Permission
+    permissions: Permission[];
 }
